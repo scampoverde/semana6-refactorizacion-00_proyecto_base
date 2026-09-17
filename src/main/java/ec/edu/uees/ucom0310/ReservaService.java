@@ -7,23 +7,35 @@ public class ReservaService {
 
     // Código deliberadamente anidado para la primera refactorización.
     public boolean puedeCancelar(Reserva r, LocalDateTime ahora) {
-        if (r != null) {
-            if (r.getEstudianteEmail() != null) {
-                if (r.getDocenteEmail() != null) {
-                    if (!r.isCancelada()) {
-                        LocalDateTime inicio =
-                                LocalDateTime.parse(r.getInicio());
-
-                        long horas =
-                                Duration.between(ahora, inicio).toHours();
-
-                        if (horas >= 2) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+		/*
+		 1 * if (r != null) { if (r.getEstudianteEmail() != null) { if
+		 * (r.getDocenteEmail() != null) { if (!r.isCancelada()) { LocalDateTime inicio
+		 * = LocalDateTime.parse(r.getInicio());
+		 * 
+		 * long horas = Duration.between(ahora, inicio).toHours();
+		 * 
+		 * if (horas >= 2) { return true; } } } } }
+		 */
+    	
+    	if (r == null) {
+    		return false;
+    	}
+    	if (r.getDocenteEmail()== null) {
+    		return false;
+    	}
+    	if (r.getDocenteEmail() == null) {
+    		return false;
+    	}
+    	
+    	if (r.isCancelada()) {
+    		return false;
+    	}
+    	
+    	LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
+    	long horas =
+    			Duration.between(ahora, inicio).toHours();
+    	
+    	
+        return horas>=2;
     }
 }

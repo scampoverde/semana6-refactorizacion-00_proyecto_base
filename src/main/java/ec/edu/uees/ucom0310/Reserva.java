@@ -6,6 +6,9 @@ public class Reserva {
     private final String docenteEmail;
     private final String inicio;
     private final String fin;
+    
+    
+    
     private EstadoReserva estado = EstadoReserva.PENDIENTE;
 
     public Reserva(String id, String estudianteEmail, String docenteEmail,

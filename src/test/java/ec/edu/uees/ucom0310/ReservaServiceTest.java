@@ -33,32 +33,94 @@ class ReservaServiceTest {
         // Assert
         assertTrue(resultado);
     }
-
+    
     @Test
     void reservaConMenosDeDosHorasNoPuedeCancelarse() {
+    	
+    	//arrange
+    	  // Arrange
+
         LocalDateTime ahora =
-                LocalDateTime.of(2026, 9, 20, 10, 30);
+                LocalDateTime.of(2026, 9,20,10, 30);
 
-        Reserva r = reserva(
-                LocalDateTime.of(2026, 9, 20, 12, 0));
+        Reserva r =
+                reserva(
+                        LocalDateTime.of( 2026,  9, 20,12, 0));
 
-        assertFalse(
-                new ReservaService().puedeCancelar(r, ahora)
-        );
+
+        // Act
+
+        boolean resultado =
+                new ReservaService()
+                        .puedeCancelar(
+                                r,
+                                ahora);
+
+
+        // Assert
+
+        assertFalse(resultado);
+    	
     }
-
+    
     @Test
     void reservaCanceladaNoPuedeCancelarse() {
-        LocalDateTime ahora =
-                LocalDateTime.of(2026, 9, 20, 8, 0);
 
-        Reserva r = reserva(
-                LocalDateTime.of(2026, 9, 20, 12, 0));
+        // Arrange
+
+        LocalDateTime ahora =
+                LocalDateTime.of(   2026,   9,  20,  8,  0);
+
+        Reserva r =
+                reserva(
+                        LocalDateTime.of( 2026,
+                                9,    20,   12,     0));
 
         r.cancelar();
 
-        assertFalse(
-                new ReservaService().puedeCancelar(r, ahora)
-        );
+        // Act
+
+        boolean resultado =
+                new ReservaService()
+                        .puedeCancelar(
+                                r,
+                                ahora);
+
+
+        // Assert
+
+        assertFalse(resultado);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
 }

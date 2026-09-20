@@ -31,11 +31,11 @@ public class ReservaService {
     		return false;
     	}
     	
-    	LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
-    	long horas =
-    			Duration.between(ahora, inicio).toHours();
+    	//LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
+    	//long horas =
+    		//	Duration.between(ahora, inicio).toHours();
     	
     	
-        return horas>=2;
+        return r.getPeriodo().horasHastaInicio(ahora) >=2;
     }
 }

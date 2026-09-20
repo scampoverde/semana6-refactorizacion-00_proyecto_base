@@ -11,8 +11,7 @@ class ReservaServiceTest {
                 "R-001",
                 "estudiante@uees.edu.ec",
                 "docente@uees.edu.ec",
-                inicio.toString(),
-                inicio.plusHours(1).toString()
+               new PeriodoReserva(inicio, inicio.plusHours(1))
         );
     }
 

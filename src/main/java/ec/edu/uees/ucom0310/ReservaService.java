@@ -16,26 +16,22 @@ public class ReservaService {
 		 * 
 		 * if (horas >= 2) { return true; } } } } }
 		 */
-    	
-    	if (r == null) {
-    		return false;
-    	}
-    	if (r.getDocenteEmail()== null) {
-    		return false;
-    	}
-    	if (r.getDocenteEmail() == null) {
-    		return false;
-    	}
-    	
-    	if (r.isCancelada()) {
-    		return false;
-    	}
-    	
-    	//LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
+    
+    
+    	if (r == null) return false;
+    	if (r.getEstudianteEmail() == null) return false;
+    	if (r.getDocenteEmail() == null) return false;
+    	if (r.isCancelada()) return false;
+
+    	return r.getPeriodo()
+            	.horasHastaInicio(ahora) >= 2;
+	}
+	
+	    //LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
     	//long horas =
     		//	Duration.between(ahora, inicio).toHours();
     	
     	
-        return r.getPeriodo().horasHastaInicio(ahora) >=2;
+    //return r.getPeriodo().horasHastaInicio(ahora) >=2;
     }
-}
+

@@ -31,6 +31,20 @@ En esta actividad integrarás el diagnóstico y la red de seguridad construidos 
 
 https://github.com/scampoverde/semana6-refactorizacion-00_proyecto_base.git
 
+## Compilar y Ejecutar Pruebas
+
+mvn clean compile
+mvn clean test
+
+## Refactorizaciones Aplicadas
+
+1. Guard Clauses
+2. Value Object Email
+3. Move Method
+
+## Evidencia
+
+PRUEBA VERDE → CAMBIO PEQUEÑO → PRUEBA VERDE → COMMIT
 
 ## Uso de inteligencia artificial
 

@@ -29,5 +29,9 @@ public record PeriodoReserva(
 	public long horasHastaInicio(LocalDateTime ahora) {
 		return Duration.between(ahora, inicio).toHours();
 	}
+
+	public boolean permiteCancelacion(LocalDateTime ahora) {
+    return horasHastaInicio(ahora) >= 2;
+}
 	
 }

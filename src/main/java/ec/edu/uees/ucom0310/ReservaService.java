@@ -1,6 +1,5 @@
 package ec.edu.uees.ucom0310;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class ReservaService {
@@ -23,8 +22,11 @@ public class ReservaService {
     	if (r.getDocenteEmail() == null) return false;
     	if (r.isCancelada()) return false;
 
-    	return r.getPeriodo()
-            	.horasHastaInicio(ahora) >= 2;
+		return r.getPeriodo()
+        		.permiteCancelacion(ahora);
+
+    	//return r.getPeriodo()
+            	//.horasHastaInicio(ahora) >= 2;
 	}
 	
 	    //LocalDateTime inicio = LocalDateTime.parse(r.getInicio());
@@ -33,5 +35,4 @@ public class ReservaService {
     	
     	
     //return r.getPeriodo().horasHastaInicio(ahora) >=2;
-    }
-
+}
